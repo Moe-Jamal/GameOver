@@ -12,6 +12,15 @@ let currentCategory = "mmorpg";
 const myLoader = document.querySelector(".loading");
 const logoutBtn = document.querySelector(".logout-btn");
 const themBtn = document.getElementById("mode");
+if (localStorage.getItem("Mode")) {
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("Mode"));
+    if (localStorage.getItem("Mode") === "light") {
+        themBtn.classList.replace("fa-sun", "fa-moon");
+    }
+    else {
+        themBtn.classList.replace("fa-moon", "fa-sun");
+    }
+}
 // * =============> Events ===============>
 document.querySelectorAll(".menu a").forEach((link) => {
     link.addEventListener("click", () => {
@@ -26,13 +35,6 @@ logoutBtn.addEventListener("click", () => {
     location.href = "./index.html";
 });
 document.addEventListener("DOMContentLoaded", function () {
-    document.documentElement.setAttribute("data-theme", localStorage.getItem("Mode"));
-    if (localStorage.getItem("Mode") === "light") {
-        themBtn.classList.replace("fa-sun", "fa-moon");
-    }
-    else {
-        themBtn.classList.replace("fa-moon", "fa-sun");
-    }
     getGames();
 });
 themBtn.addEventListener("click", () => {

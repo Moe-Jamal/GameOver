@@ -12,6 +12,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const inputs = document.querySelectorAll("input");
 const myForm = document.querySelector("form");
 const themBtn3 = document.getElementById("mode");
+if (localStorage.getItem("Mode")) {
+    document.documentElement.setAttribute("data-theme", localStorage.getItem("Mode"));
+    if (localStorage.getItem("Mode") === "light") {
+        themBtn3.classList.replace("fa-sun", "fa-moon");
+    }
+    else {
+        themBtn3.classList.replace("fa-moon", "fa-sun");
+    }
+}
 // * =============> Events ===============>
 myForm === null || myForm === void 0 ? void 0 : myForm.addEventListener("submit", function (e) {
     e.preventDefault();

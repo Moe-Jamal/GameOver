@@ -49,9 +49,9 @@ function displayGameDetails(detailsData) {
                 <span class="btn btn-dark d-block w-100 rounded-1">Free</span>
               </div>
               <div class="col-8 ps-1">
-                <span class="btn btn-primary d-block w-100 rounded-1">
-                  <a href="${detailsData.game_url}" target="_blank" class="text-decoration-none">Play Now</a>
-                </span>
+                  <a href="${detailsData.game_url}" target="_blank" class="text-decoration-none btn btn-primary d-block w-100 rounded-1" >
+                  Play Now
+                  </a>
               </div>
             </div>
             <div class="info mt-3">

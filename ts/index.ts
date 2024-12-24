@@ -6,6 +6,17 @@ interface UserLogin {
 }
 const loginForm: HTMLElement = document.querySelector("form");
 const themBtn2: HTMLElement = document.getElementById("mode");
+if (localStorage.getItem("Mode")) {
+  document.documentElement.setAttribute(
+    "data-theme",
+    localStorage.getItem("Mode")
+  );
+  if (localStorage.getItem("Mode") === "light") {
+    themBtn2.classList.replace("fa-sun", "fa-moon");
+  } else {
+    themBtn2.classList.replace("fa-moon", "fa-sun");
+  }
+}
 // * =============> Events ===============>
 loginForm?.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -16,17 +27,6 @@ loginForm?.addEventListener("submit", function (e) {
 inputsLogin[0].addEventListener("blur", emailLoginValidation);
 inputsLogin[1].addEventListener("blur", passwordLoginValidation);
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.documentElement.setAttribute(
-    "data-theme",
-    localStorage.getItem("Mode")
-  );
-  if (localStorage.getItem("Mode") === "light") {
-    themBtn2.classList.replace("fa-sun", "fa-moon");
-  } else {
-    themBtn2.classList.replace("fa-moon", "fa-sun");
-  }
-});
 themBtn2.addEventListener("click", () => {
   if (themBtn2.classList.contains("fa-sun")) {
     document.documentElement.setAttribute("data-theme", "light");

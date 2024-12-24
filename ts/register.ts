@@ -9,6 +9,17 @@ interface User {
 }
 const myForm: HTMLElement = document.querySelector("form");
 const themBtn3: HTMLElement = document.getElementById("mode");
+if (localStorage.getItem("Mode")) {
+  document.documentElement.setAttribute(
+    "data-theme",
+    localStorage.getItem("Mode")
+  );
+  if (localStorage.getItem("Mode") === "light") {
+    themBtn3.classList.replace("fa-sun", "fa-moon");
+  } else {
+    themBtn3.classList.replace("fa-moon", "fa-sun");
+  }
+}
 // * =============> Events ===============>
 myForm?.addEventListener("submit", function (e) {
   e.preventDefault();
